@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Set-Up</title>
+    <link rel="stylesheet" type="text/css" href="gameSetUp.css">
+    <link rel="stylesheet"  href="https://bootswatch.com/4/sketchy/bootstrap.min.css"></head>
+    <body>
+        
+        
+<meta name="viewport" content="width=dwvice-width,initial-scale=1">
+
+<div class="container">     
+     <div class="jumbotron">
+
+        <header>
+            <h1 class="display-3" >Welcome <span id="userName"></span></h1>
+        </header>
+
+        <div id="card" class="card border-dark mb-3" style="max-width: 20rem;">
+            <div class="card-header">Create a game</div>
+                
+                
+                  <div class="card-body">
+
+                        <form action="gameSetUp.html" method="POST">
+                      <fieldset>
+                          <h4 class="card-title">Choose a level</h4>
+
+                          <div id="difficultyDiv">
+                          <input id="easy" name="game_lvl" type="radio">   
+                          <label for="easy">Easy</label>     <br>
+
+                          
+                          <input id="medium" name="game_lvl" type="radio">    
+                          <label for="medium">Medium</label>     <br>
+
+                         
+                         <input id="hard" name="game_lvl" type="radio">  
+                         <label for="hard">Hard</label>       <br>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+            </div>
+
+  
+                   <div id="startDiv">
+                    <a id="startBtn" href="#">
+                     <button class="btn btn-primary btn-lg" type="button">Start</button>
+                    </a>
+                  </div>
+             
+
+        
+
+</div>
+</div>
+
+        <script src="gameSetUp.js"></script>
+    </body>
+</html>
