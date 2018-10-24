@@ -75,10 +75,10 @@ return mat1;
 
 // יצירת הקוביה השניה  + השלישית
 debugger;
-creatMat2();
+creatMat2and3();
 
 
-function creatMat2 ()
+function creatMat2and3 ()
 {
 
 
@@ -95,17 +95,89 @@ function creatMat2 ()
     mat3[2][2] = line2[2];
 
 
+
+
     var line3 = [mat1[1][0] , mat1[1][1],mat1[1][2]];
     line3 = _.shuffle(line3);
     mat2[2][0] = line3[0];
     mat2[2][1] = line3[1];
     mat2[2][2] = line3[2];
 
-    var line4 = [mat2[1][0] , mat2[1][1],mat2[1][2]];
+    var line4 = [mat2[2][0] , mat2[2][1] , mat2[2][2]];
     line4 = _.shuffle(line4);
     mat3[0][0] = line4[0];
     mat3[0][1] = line4[1];
     mat3[0][2] = line4[2];
+
+
+
+
+    var line5 = [mat1[2][0] , mat1[2][1],mat1[2][2]];
+    line5 = _.shuffle(line5);
+    mat2[0][0] = line5[0];
+    mat2[0][1] = line5[1];
+    mat2[0][2] = line5[2];
+
+    var line6 = [mat2[0][0] , mat2[0][1],mat2[0][2]];
+    line6 = _.shuffle(line6);
+    mat3[1][0] = line6[0];
+    mat3[1][1] = line6[1];
+    mat3[1][2] = line6[2];
+
+
+}
+
+
+// יצירת הקוביה רביעית  + חמישית
+debugger;
+creatMat3and4();
+
+
+function creatMat3and4 ()
+{
+
+
+    var line1 = [mat1[0][0] , mat1[1][0],mat1[2][0]];
+    line1 = _.shuffle(line1);
+    mat4[0][1] = line1[0];
+    mat4[1][1] = line1[1];
+    mat4[2][1] = line1[2];
+
+    var line2 = [mat4[0][1] , mat4[1][1],mat4[2][1]];
+    line2 = _.shuffle(line2);
+    mat5[0][2] = line2[0];
+    mat5[1][2] = line2[1];
+    mat5[2][2] = line2[2];
+
+
+
+
+    var line3 = [mat1[0][1] , mat1[1][1],mat1[2][1]];
+    line3 = _.shuffle(line3);
+    mat4[0][0] = line3[0];
+    mat4[1][0] = line3[1];
+    mat4[2][0] = line3[2];
+
+    var line4 = [mat4[0][0] , mat4[1][0] , mat4[2][0]];
+    line4 = _.shuffle(line4);
+    mat5[0][1] = line4[0];
+    mat5[1][1] = line4[1];
+    mat5[2][1] = line4[2];
+
+
+
+
+    var line5 = [mat1[0][2] , mat1[1][2],mat1[2][2]];
+    line5 = _.shuffle(line5);
+    mat4[0][2] = line5[0];
+    mat4[1][2] = line5[1];
+    mat4[2][2] = line5[2];
+
+    var line6 = [mat4[0][2] , mat4[1][2],mat4[2][2]];
+    line6 = _.shuffle(line6);
+    mat5[0][0] = line6[0];
+    mat5[1][0] = line6[1];
+    mat5[2][0] = line6[2];
 
 
 }
@@ -170,7 +242,7 @@ function incertion ()
       // קוביה רביעית
     document.getElementById("d1").value = mat2[0][0];
     document.getElementById("d2").value = mat2[0][1];
-    document.getElementById("d3").value = mat2[0][1];
+    document.getElementById("d3").value = mat2[0][2];
     document.getElementById("e1").value = mat2[1][0];
     document.getElementById("e2").value = mat2[1][1];
     document.getElementById("e3").value = mat2[1][2];
