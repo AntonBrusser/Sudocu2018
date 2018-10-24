@@ -1,37 +1,18 @@
 {
 
 
-var rowAmbar1 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar2 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar3 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar4 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar5 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar6 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar7 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar8 = [1,2,3,4,5,6,7,8,9];
-var rowAmbar9 = [1,2,3,4,5,6,7,8,9];
+var numbers = [[1,1,1,1,1,1,1,1,1],
+               [2,2,2,2,2,2,2,2,2],
+               [3,3,3,3,3,3,3,3,3],
+               [4,4,4,4,4,4,4,4,4],
+               [5,5,5,5,5,5,5,5,5],
+               [6,6,6,6,6,6,6,6,6],
+               [7,7,7,7,7,7,7,7,7],
+               [8,8,8,8,8,8,8,8,8],
+               [9,9,9,9,9,9,9,9,9]]
 
-var colAmbar1 = [1,2,3,4,5,6,7,8,9];
-var colAmbar2 = [1,2,3,4,5,6,7,8,9];
-var colAmbar3 = [1,2,3,4,5,6,7,8,9];
-var colAmbar4 = [1,2,3,4,5,6,7,8,9];
-var colAmbar5 = [1,2,3,4,5,6,7,8,9];
-var colAmbar6 = [1,2,3,4,5,6,7,8,9];
-var colAmbar7 = [1,2,3,4,5,6,7,8,9];
-var colAmbar8 = [1,2,3,4,5,6,7,8,9];
-var colAmbar9 = [1,2,3,4,5,6,7,8,9];
 
-var matAmbar1 = [1,2,3,4,5,6,7,8,9];
-var matAmbar2 = [1,2,3,4,5,6,7,8,9];
-var matAmbar3 = [1,2,3,4,5,6,7,8,9];
-var matAmbar4 = [1,2,3,4,5,6,7,8,9];
-var matAmbar5 = [1,2,3,4,5,6,7,8,9];
-var matAmbar6 = [1,2,3,4,5,6,7,8,9];
-var matAmbar7 = [1,2,3,4,5,6,7,8,9];
-var matAmbar8 = [1,2,3,4,5,6,7,8,9];
-var matAmbar9 = [1,2,3,4,5,6,7,8,9];
-
-var mat1 = [[0,0,0],[0,0,0],[0,0,0]];
+var mat1 = [[1,2,3],[4,5,6],[7,8,9]];
 var mat2 = [[0,0,0],[0,0,0],[0,0,0]];
 var mat3 = [[0,0,0],[0,0,0],[0,0,0]];
 var mat4 = [[0,0,0],[0,0,0],[0,0,0]];
@@ -41,26 +22,27 @@ var mat7 = [[0,0,0],[0,0,0],[0,0,0]];
 var mat8 = [[0,0,0],[0,0,0],[0,0,0]];
 var mat9 = [[0,0,0],[0,0,0],[0,0,0]];
 
-var row = 0;
-var col = 0;
-var num = 0;
-var arr = [];
+var matAmbar = [1,2,3,4,5,6,7,8,9];
+
+
+
+
 
 // יצירת הקובייה הראשונה
 
 creatMat1();
-function removeItem1(matAmbar1, place){
-    for(var i in matAmbar1){
-        if(matAmbar1[i]==place){
-            matAmbar1.splice(i,1);
+function removeItem(matAmbar, place){
+    for(var i in matAmbar){
+        if(matAmbar[i]==place){
+            matAmbar.splice(i,1);
             break;
         }
     }
 }
 function creatMat1 ()
 {
- row = 0;
- col = 0;
+var row = 0;
+var col = 0;
 var L;
 var num;
 var place;
@@ -70,18 +52,14 @@ for (row = 0; row < 3; row++ )
 {
     for(col = 0; col < 3 ; col++)
     {
-       L = matAmbar1.length;
+       L = matAmbar.length;
        num = Math.floor(Math.random()*L-1)+1;
-       place = matAmbar1[num];
+       place = matAmbar[num];
        mat1[row][col] = place;
        
         
 
-       removeItem1(matAmbar1, place);
-       rowAmbar1= _.difference(rowAmbar1, [mat1[0][0],mat1[0][1],mat1[0][2]]);
-       rowAmbar2= _.difference(rowAmbar2, [mat1[1][0],mat1[1][1],mat1[1][2]]);
-       rowAmbar3= _.difference(rowAmbar3, [ mat1[2][0],mat1[2][1],mat1[2][2]]);
-      
+       removeItem(matAmbar, place);
 
     }
 }
@@ -95,70 +73,39 @@ return mat1;
 
 
 
-
-// יצירת הקובייה השנייה
+// יצירת הקוביה השניה  + השלישית
 debugger;
 creatMat2();
-function removeItem2(matAmbar2, place){
-    for(var i in matAmbar2){
-        if(matAmbar2[i]==place){
-            matAmbar2.splice(i,1);
-            break;
-        }
-    }
-}
 
 
 function creatMat2 ()
 {
-num = 0;
- row = 0;
- col = 0;
-var L;
-
-var place;
-
-for (row = 0; row < 3; row++ )
-{
-    for(col = 0; col < 3 ; col++)
-    {
-        L = matAmbar2.length;
-               
-        
-            if (row == 0)
-              {
-                  var row1 = _.intersection(matAmbar2,rowAmbar1);
-                  num = Math.floor(Math.random()*row1.length-1)+1+1
-                  place = row1[num-1];
-                }
-             if (row == 1)
-               {
-                var row2 = _.intersection(matAmbar2,rowAmbar2);
-                num = Math.floor(Math.random()*row2.length-1)+1+1   
-                place = row2[num-1];
-                }
-
-            if (row == 2)
-            {
-                var row3 = _.intersection(matAmbar2,rowAmbar3);
-                num = Math.floor(Math.random()*L-1)+1+1
-           place = matAmbar2[num-1];
-           
-            }
 
 
-        mat2[row][col] = place;
+    var line1 = [mat1[0][0] , mat1[0][1],mat1[0][2]];
+    line1 = _.shuffle(line1);
+    mat2[1][0] = line1[0];
+    mat2[1][1] = line1[1];
+    mat2[1][2] = line1[2];
 
-        removeItem2(matAmbar2, place);
-       rowAmbar1= _.difference(rowAmbar1, [mat2[0][0],mat2[0][1],mat2[0][2]]);
-       rowAmbar2= _.difference(rowAmbar2, [mat2[1][0],mat2[1][1],mat2[1][2]]);
-       rowAmbar3= _.difference(rowAmbar3, [ mat2[2][0],mat2[2][1],mat2[2][2]]);
-       
+    var line2 = [mat2[1][0] , mat2[1][1],mat2[1][2]];
+    line2 = _.shuffle(line2);
+    mat3[2][0] = line2[0];
+    mat3[2][1] = line2[1];
+    mat3[2][2] = line2[2];
 
-    }
-}
 
-return mat2;
+    var line3 = [mat1[1][0] , mat1[1][1],mat1[1][2]];
+    line3 = _.shuffle(line3);
+    mat2[2][0] = line3[0];
+    mat2[2][1] = line3[1];
+    mat2[2][2] = line3[2];
+
+    var line4 = [mat2[1][0] , mat2[1][1],mat2[1][2]];
+    line4 = _.shuffle(line4);
+    mat3[0][0] = line4[0];
+    mat3[0][1] = line4[1];
+    mat3[0][2] = line4[2];
 
 
 }
@@ -166,371 +113,6 @@ return mat2;
 
 
 
-
-
-// יצירת הקובייה השלישית
-
-creatMat3();
-function removeItem3(matAmbar3, place){
-    for(var i in matAmbar3){
-        if(matAmbar3[i]==place){
-            matAmbar3.splice(i,1);
-            break;
-        }
-    }
-}
-function creatMat3 ()
-    {
-        num = 0;
-         row = 0;
-         col = 0;
-        var L;
-        
-        var place;
-        
-        for (row = 0; row < 3; row++ )
-        {
-            for(col = 0; col < 3 ; col++)
-            {
-                L = matAmbar2.length;
-                       
-                
-                    if (row == 0)
-                      {
-                          var row1 = _.intersection(matAmbar3,rowAmbar1);
-                          num = Math.floor(Math.random()*row1.length-1)+1+1
-                          place = row1[num-1];
-                        }
-                     if (row == 1)
-                       {
-                        var row2 = _.intersection(matAmbar3,rowAmbar2);
-                        num = Math.floor(Math.random()*row2.length-1)+1+1   
-                        place = row2[num-1];
-                        }
-        
-                    if (row == 2)
-                    {
-                        
-                        num = Math.floor(Math.random()*L-1)+1+1
-                   place = matAmbar3[num-1];
-                   
-                    }
-        
-        
-                mat3[row][col] = place;
-        
-                removeItem3(matAmbar3, place);
-               rowAmbar1= _.difference(rowAmbar1, [mat3[0][0],mat3[0][1],mat3[0][2]]);
-               rowAmbar2= _.difference(rowAmbar2, [mat3[1][0],mat3[1][1],mat3[1][2]]);
-               rowAmbar3= _.difference(rowAmbar3, [ mat3[2][0],mat3[2][1],mat3[2][2]]);
-               
-        
-            }
-        }
-        
-        return mat3;
-
-
-
-
-
-
-
-
-// var row = 0;
-// var col = 0;
-// var L;
-// var num;
-// var place;
-
-
-// for (row = 0; row < 3; row++ )
-// {
-//     for(col = 0; col < 3 ; col++)
-//     {
-//        L = matAmbar3.length;
-//        num = Math.floor(Math.random()*L-1)+1;
-//        place = matAmbar3[num];
-//        mat3[row][col] = place;
-       
-        
-
-//        removeItem3(matAmbar3, place);
-
-//     }
-// }
-
-// return mat3;
-
-
-
-
-}
-
-
-
-
-
-// יצירת הקובייה הרביעית
-creatMat4();
-function removeItem4(matAmbar4, place){
-    for(var i in matAmbar4){
-        if(matAmbar4[i]==place){
-            matAmbar4.splice(i,1);
-            break;
-        }
-    }
-}
-function creatMat4 ()
-{
-var row = 0;
-var col = 0;
-var L;
-var num;
-var place;
-
-
-for (row = 0; row < 3; row++ )
-{
-    for(col = 0; col < 3 ; col++)
-    {
-       L = matAmbar4.length;
-       num = Math.floor(Math.random()*L-1)+1;
-       place = matAmbar4[num];
-       mat4[row][col] = place;
-       
-        
-
-       removeItem4(matAmbar4, place);
-
-    }
-}
-
-return mat4;
-
-
-
-
-}
-
-
-// יצירת הקובייה החמישית
-creatMat5();
-function removeItem5(matAmbar5, place){
-    for(var i in matAmbar5){
-        if(matAmbar5[i]==place){
-            matAmbar5.splice(i,1);
-            break;
-        }
-    }
-}
-function creatMat5 ()
-{
-var row = 0;
-var col = 0;
-var L;
-var num;
-var place;
-
-
-for (row = 0; row < 3; row++ )
-{
-    for(col = 0; col < 3 ; col++)
-    {
-       L = matAmbar5.length;
-       num = Math.floor(Math.random()*L-1)+1;
-       place = matAmbar5[num];
-       mat5[row][col] = place;
-       
-        
-
-       removeItem5(matAmbar5, place);
-
-    }
-}
-
-return mat5;
-
-
-
-
-}
-
-
-// יצירת הקובייה השישית
-creatMat6();
-function removeItem6(matAmbar6, place){
-    for(var i in matAmbar6){
-        if(matAmbar6[i]==place){
-            matAmbar6.splice(i,1);
-            break;
-        }
-    }
-}
-function creatMat6 ()
-{
-var row = 0;
-var col = 0;
-var L;
-var num;
-var place;
-
-
-for (row = 0; row < 3; row++ )
-{
-    for(col = 0; col < 3 ; col++)
-    {
-       L = matAmbar6.length;
-       num = Math.floor(Math.random()*L-1)+1;
-       place = matAmbar6[num];
-       mat6[row][col] = place;
-       
-        
-
-       removeItem6(matAmbar6, place);
-
-    }
-}
-
-return mat6;
-
-
-
-
-}
-
-
-// יצירת הקובייה השביעית
-creatMat7();
-function removeItem7(matAmbar7, place){
-    for(var i in matAmbar7){
-        if(matAmbar7[i]==place){
-            matAmbar7.splice(i,1);
-            break;
-        }
-    }
-}
-function creatMat7 ()
-{
-var row = 0;
-var col = 0;
-var L;
-var num;
-var place;
-
-
-for (row = 0; row < 3; row++ )
-{
-    for(col = 0; col < 3 ; col++)
-    {
-       L = matAmbar7.length;
-       num = Math.floor(Math.random()*L-1)+1;
-       place = matAmbar7[num];
-       mat7[row][col] = place;
-       
-        
-
-       removeItem7(matAmbar7, place);
-
-    }
-}
-
-return mat7;
-
-
-
-
-}
-
-
-
-
-// יצירת הקובייה השמינית
-
-
-creatMat8();
-function removeItem8(matAmbar8, place){
-    for(var i in matAmbar8){
-        if(matAmbar8[i]==place){
-            matAmbar8.splice(i,1);
-            break;
-        }
-    }
-}
-function creatMat8 ()
-{
-var row = 0;
-var col = 0;
-var L;
-var num;
-var place;
-
-
-for (row = 0; row < 3; row++ )
-{
-    for(col = 0; col < 3 ; col++)
-    {
-       L = matAmbar8.length;
-       num = Math.floor(Math.random()*L-1)+1;
-       place = matAmbar8[num];
-       mat8[row][col] = place;
-       
-        
-
-       removeItem8(matAmbar8, place);
-
-    }
-}
-
-return mat8;
-
-
-
-
-}
-
-
-// יצירת הקוביה התשיעית
-creatMat9();
-function removeItem9(matAmbar9, place){
-    for(var i in matAmbar9){
-        if(matAmbar9[i]==place){
-            matAmbar9.splice(i,1);
-            break;
-        }
-    }
-}
-function creatMat9 ()
-{
-var row = 0;
-var col = 0;
-var L;
-var num;
-var place;
-
-
-for (row = 0; row < 3; row++ )
-{
-    for(col = 0; col < 3 ; col++)
-    {
-       L = matAmbar9.length;
-       num = Math.floor(Math.random()*L-1)+1;
-       place = matAmbar9[num];
-       mat9[row][col] = place;
-       
-        
-
-       removeItem9(matAmbar9, place);
-
-    }
-}
-
-return mat9;
-
-
-
-
-}
 
 
 
@@ -553,48 +135,48 @@ incertion ()
 function incertion ()
 {      
     // קוביה ראשונה
-    document.getElementById("a1").value = mat1[0][0];
-    document.getElementById("a2").value = mat1[0][1];
-    document.getElementById("a3").value = mat1[0][2];
-    document.getElementById("b1").value = mat1[1][0];
-    document.getElementById("b2").value = mat1[1][1];
-    document.getElementById("b3").value = mat1[1][2];
-    document.getElementById("c1").value = mat1[2][0];
-    document.getElementById("c2").value = mat1[2][1];
-    document.getElementById("c3").value = mat1[2][2];
+    document.getElementById("a1").value = mat6[0][0];
+    document.getElementById("a2").value = mat6[0][1];
+    document.getElementById("a3").value = mat6[0][2];
+    document.getElementById("b1").value = mat6[1][0];
+    document.getElementById("b2").value = mat6[1][1];
+    document.getElementById("b3").value = mat6[1][2];
+    document.getElementById("c1").value = mat6[2][0];
+    document.getElementById("c2").value = mat6[2][1];
+    document.getElementById("c3").value = mat6[2][2];
 
      // קוביה שניה
-    document.getElementById("a4").value = mat2[0][0];
-    document.getElementById("a5").value = mat2[0][1];
-    document.getElementById("a6").value = mat2[0][2];
-    document.getElementById("b4").value = mat2[1][0];
-    document.getElementById("b5").value = mat2[1][1];
-    document.getElementById("b6").value = mat2[1][2];
-    document.getElementById("c4").value = mat2[2][0];
-    document.getElementById("c5").value = mat2[2][1];
-    document.getElementById("c6").value = mat2[2][2];
+    document.getElementById("a4").value = mat4[0][0];
+    document.getElementById("a5").value = mat4[0][1];
+    document.getElementById("a6").value = mat4[0][2];
+    document.getElementById("b4").value = mat4[1][0];
+    document.getElementById("b5").value = mat4[1][1];
+    document.getElementById("b6").value = mat4[1][2];
+    document.getElementById("c4").value = mat4[2][0];
+    document.getElementById("c5").value = mat4[2][1];
+    document.getElementById("c6").value = mat4[2][2];
 
      // קוביה שלישית
-     document.getElementById("a7").value = mat3[0][0];
-     document.getElementById("a8").value = mat3[0][1];
-     document.getElementById("a9").value = mat3[0][2];
-     document.getElementById("b7").value = mat3[1][0];
-     document.getElementById("b8").value = mat3[1][1];
-     document.getElementById("b9").value = mat3[1][2];
-     document.getElementById("c7").value = mat3[2][0];
-     document.getElementById("c8").value = mat3[2][1];
-     document.getElementById("c9").value = mat3[2][2];
+     document.getElementById("a7").value = mat7[0][0];
+     document.getElementById("a8").value = mat7[0][1];
+     document.getElementById("a9").value = mat7[0][2];
+     document.getElementById("b7").value = mat7[1][0];
+     document.getElementById("b8").value = mat7[1][1];
+     document.getElementById("b9").value = mat7[1][2];
+     document.getElementById("c7").value = mat7[2][0];
+     document.getElementById("c8").value = mat7[2][1];
+     document.getElementById("c9").value = mat7[2][2];
 
       // קוביה רביעית
-    document.getElementById("d1").value = mat1[0][0];
-    document.getElementById("d2").value = mat1[0][1];
-    document.getElementById("d3").value = mat1[0][1];
-    document.getElementById("e1").value = mat1[1][0];
-    document.getElementById("e2").value = mat1[1][1];
-    document.getElementById("e3").value = mat1[1][2];
-    document.getElementById("f1").value = mat1[2][0];
-    document.getElementById("f2").value = mat1[2][1];
-    document.getElementById("f3").value = mat1[2][2];
+    document.getElementById("d1").value = mat2[0][0];
+    document.getElementById("d2").value = mat2[0][1];
+    document.getElementById("d3").value = mat2[0][1];
+    document.getElementById("e1").value = mat2[1][0];
+    document.getElementById("e2").value = mat2[1][1];
+    document.getElementById("e3").value = mat2[1][2];
+    document.getElementById("f1").value = mat2[2][0];
+    document.getElementById("f2").value = mat2[2][1];
+    document.getElementById("f3").value = mat2[2][2];
 
      // קוביה חמישית
      document.getElementById("d4").value = mat1[0][0];
@@ -608,48 +190,48 @@ function incertion ()
      document.getElementById("f6").value = mat1[2][2];
 
       // קוביה שישית
-    document.getElementById("d7").value = mat1[0][0];
-    document.getElementById("d8").value = mat1[0][1];
-    document.getElementById("d9").value = mat1[0][2];
-    document.getElementById("e7").value = mat1[1][0];
-    document.getElementById("e8").value = mat1[1][1];
-    document.getElementById("e9").value = mat1[1][2];
-    document.getElementById("f7").value = mat1[2][0];
-    document.getElementById("f8").value = mat1[2][1];
-    document.getElementById("f9").value = mat1[2][2];
+    document.getElementById("d7").value = mat3[0][0];
+    document.getElementById("d8").value = mat3[0][1];
+    document.getElementById("d9").value = mat3[0][2];
+    document.getElementById("e7").value = mat3[1][0];
+    document.getElementById("e8").value = mat3[1][1];
+    document.getElementById("e9").value = mat3[1][2];
+    document.getElementById("f7").value = mat3[2][0];
+    document.getElementById("f8").value = mat3[2][1];
+    document.getElementById("f9").value = mat3[2][2];
 
      // קוביה שביעית
-     document.getElementById("g1").value = mat1[0][0];
-     document.getElementById("g2").value = mat1[0][1];
-     document.getElementById("g3").value = mat1[0][2];
-     document.getElementById("h1").value = mat1[1][0];
-     document.getElementById("h2").value = mat1[2][1];
-     document.getElementById("h3").value = mat1[1][2];
-     document.getElementById("i1").value = mat1[2][0];
-     document.getElementById("i2").value = mat1[2][1];
-     document.getElementById("i3").value = mat1[2][2];
+     document.getElementById("g1").value = mat8[0][0];
+     document.getElementById("g2").value = mat8[0][1];
+     document.getElementById("g3").value = mat8[0][2];
+     document.getElementById("h1").value = mat8[1][0];
+     document.getElementById("h2").value = mat8[2][1];
+     document.getElementById("h3").value = mat8[1][2];
+     document.getElementById("i1").value = mat8[2][0];
+     document.getElementById("i2").value = mat8[2][1];
+     document.getElementById("i3").value = mat8[2][2];
 
       // קוביה שמינית
-    document.getElementById("g4").value = mat1[0][0];
-    document.getElementById("g5").value = mat1[0][1];
-    document.getElementById("g6").value = mat1[0][2];
-    document.getElementById("h4").value = mat1[1][0];
-    document.getElementById("h5").value = mat1[1][1];
-    document.getElementById("h6").value = mat1[1][2];
-    document.getElementById("i4").value = mat1[2][0];
-    document.getElementById("i5").value = mat1[2][1];
-    document.getElementById("i6").value = mat1[2][2];
+    document.getElementById("g4").value = mat5[0][0];
+    document.getElementById("g5").value = mat5[0][1];
+    document.getElementById("g6").value = mat5[0][2];
+    document.getElementById("h4").value = mat5[1][0];
+    document.getElementById("h5").value = mat5[1][1];
+    document.getElementById("h6").value = mat5[1][2];
+    document.getElementById("i4").value = mat5[2][0];
+    document.getElementById("i5").value = mat5[2][1];
+    document.getElementById("i6").value = mat5[2][2];
 
      // קוביה תשיעית
-     document.getElementById("g7").value = mat1[0][0];
-     document.getElementById("g8").value = mat1[0][1];
-     document.getElementById("g9").value = mat1[0][2];
-     document.getElementById("h7").value = mat1[1][0];
-     document.getElementById("h8").value = mat1[1][1];
-     document.getElementById("h9").value = mat1[1][2];
-     document.getElementById("i7").value = mat1[2][0];
-     document.getElementById("i8").value = mat1[2][1];
-     document.getElementById("i9").value = mat1[2][2];
+     document.getElementById("g7").value = mat9[0][0];
+     document.getElementById("g8").value = mat9[0][1];
+     document.getElementById("g9").value = mat9[0][2];
+     document.getElementById("h7").value = mat9[1][0];
+     document.getElementById("h8").value = mat9[1][1];
+     document.getElementById("h9").value = mat9[1][2];
+     document.getElementById("i7").value = mat9[2][0];
+     document.getElementById("i8").value = mat9[2][1];
+     document.getElementById("i9").value = mat9[2][2];
 }
 
 
