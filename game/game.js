@@ -74,7 +74,7 @@ return mat1;
 
 
 // יצירת הקוביה השניה  + השלישית
-debugger;
+
 creatMat2and3();
 
 
@@ -129,7 +129,7 @@ function creatMat2and3 ()
 
 
 // יצירת הקוביה רביעית  + חמישית
-debugger;
+
 creatMat3and4();
 
 
@@ -154,38 +154,109 @@ function creatMat3and4 ()
 
     var line3 = [mat1[0][1] , mat1[1][1],mat1[2][1]];
     line3 = _.shuffle(line3);
-    mat4[0][0] = line3[0];
-    mat4[1][0] = line3[1];
-    mat4[2][0] = line3[2];
+    mat4[0][2] = line3[0];
+    mat4[1][2] = line3[1];
+    mat4[2][2] = line3[2];
 
-    var line4 = [mat4[0][0] , mat4[1][0] , mat4[2][0]];
+    var line4 = [mat4[0][2] , mat4[1][2] , mat4[2][2]];
     line4 = _.shuffle(line4);
-    mat5[0][1] = line4[0];
-    mat5[1][1] = line4[1];
-    mat5[2][1] = line4[2];
+    mat5[0][0] = line4[0];
+    mat5[1][0] = line4[1];
+    mat5[2][0] = line4[2];
 
 
 
 
     var line5 = [mat1[0][2] , mat1[1][2],mat1[2][2]];
     line5 = _.shuffle(line5);
-    mat4[0][2] = line5[0];
-    mat4[1][2] = line5[1];
-    mat4[2][2] = line5[2];
+    mat4[0][0] = line5[0];
+    mat4[1][0] = line5[1];
+    mat4[2][0] = line5[2];
 
-    var line6 = [mat4[0][2] , mat4[1][2],mat4[2][2]];
+    var line6 = [mat4[0][0] , mat4[1][0],mat4[2][0]];
     line6 = _.shuffle(line6);
-    mat5[0][0] = line6[0];
-    mat5[1][0] = line6[1];
-    mat5[2][0] = line6[2];
+    mat5[0][1] = line6[0];
+    mat5[1][1] = line6[1];
+    mat5[2][1] = line6[2];
 
 
 }
 
 
 
+// יצירת הקוביה שישית   + תשיעית
+
+creatMat5and9 ()
+function creatMat5and9()
+{
+
+    var arr = [1,2,3,4,5,6,7,8,9];
+    
+   var a1 = _.without(arr, mat2[0][0],mat2[1][0],mat2[2][0],mat4[0][0],mat4[0][1],mat4[0][2]);
+   mat6[0][0] = _.first(a1);
+   var a2 = _.without(arr, mat2[0][1],mat2[1][1],mat2[2][1],mat4[0][0],mat4[0][1],mat4[0][2],mat6[0][0]);
+   mat6[0][1] = _.first(a2);
+   var a3 = _.without(arr, mat2[0][2],mat2[1][2],mat2[2][2],mat4[0][0],mat4[0][1],mat4[0][2],mat6[0][0],mat6[0][1]);
+   mat6[0][2] = _.first(a3);
+
+   var a4 = _.without(arr, mat2[0][0],mat2[1][0],mat2[2][0],mat4[1][0],mat4[1][1],mat4[1][2], mat6[0][0],mat6[0][1],mat6[0][2]);
+   mat6[1][0] = _.first(a4);
+   var a5 = _.without(arr, mat2[0][1],mat2[1][1],mat2[2][1],mat4[1][0],mat4[1][1],mat4[1][2],mat6[0][0],mat6[0][1],mat6[0][2],mat6[1][0]);
+   mat6[1][1] = _.last(a5);
+   var a6 = _.without(arr, mat2[0][2],mat2[1][2],mat2[2][2],mat4[1][0],mat4[1][1],mat4[1][2],mat6[0][0],mat6[0][1],mat6[0][2],mat6[1][0],mat6[1][1]);
+   mat6[1][2] = _.last(a6);
+
+   var a7 = _.without(arr, mat4[2][0],mat4[2][1],mat4[2][2],mat6[0][0],mat6[0][1],mat6[0][2],mat6[1][0],mat6[1][1],mat6[1][2]);
+   mat6[2][0] = _.first(a7);
+//    var b8 = _.without(arr, mat6[0][0],mat6[0][1],mat6[0][2],mat6[1][0],mat6[1][1],mat6[1][2],mat6[2][0]);
+//    mat6[2][1] = _.first(b8);
+//    var a9 = _.without(arr,mat6[0][0],mat6[0][1],mat6[0][2],mat6[1][0],mat6[1][1],mat6[1][2], mat6[2][0] );
+//    mat6[2][2] = _.first(a9);
 
 
+
+
+   var b1 = _.without(arr, mat3[0][0],mat3[1][0],mat3[2][0],mat5[0][0],mat5[0][1],mat5[0][2]);
+   mat9[0][0] = _.first(b1);
+   var b2 = _.without(arr, mat3[0][1],mat3[1][1],mat3[2][1],mat5[0][0],mat5[0][1],mat5[0][2],mat9[0][0]);
+   mat9[0][1] = _.first(b2);
+   var b3 = _.without(arr, mat3[0][2],mat3[1][2],mat3[2][2],mat5[0][0],mat5[0][1],mat5[0][2],mat9[0][0],mat9[0][1]);
+   mat9[0][2] = _.first(b3);
+
+   var b4 = _.without(arr, mat3[0][0],mat3[1][0],mat3[2][0],mat5[1][0],mat5[1][1],mat5[1][2], mat9[0][0],mat9[0][1],mat9[0][2]);
+   mat9[1][0] = _.first(b4);
+   var b5 = _.without(arr, mat3[0][1],mat3[1][1],mat3[2][1],mat5[1][0],mat5[1][1],mat5[1][2],mat9[0][0],mat9[0][1],mat9[0][2],mat9[1][0]);
+   mat9[1][1] = _.last(b5);
+   var b6 = _.without(arr, mat3[0][2],mat3[1][2],mat3[2][2],mat5[1][0],mat5[1][1],mat5[1][2],mat9[0][0],mat9[0][1],mat9[0][2],mat9[1][0],mat9[1][1]);
+   mat9[1][2] = _.last(b6);
+
+   var b7 = _.without(arr, mat5[2][0],mat5[2][1],mat5[2][2],mat9[0][0],mat9[0][1],mat9[0][2],mat9[1][0],mat9[1][1],mat9[1][2]);
+   mat9[2][0] = _.first(b7);
+//    var b8 = _.without(arr,mat9[0][0],mat9[0][1],mat9[0][2],mat9[1][0],mat9[1][1],mat9[1][2],mat9[2][0]);
+//    mat9[2][1] = _.first(b8);
+//    var b9 = _.without(arr,mat9[0][0],mat9[0][1],mat9[0][2],mat9[1][0],mat9[1][1],mat9[1][2], mat9[2][0]);
+//    mat9[2][2] = _.first(b9);
+
+}
+
+
+
+// יצירת הקוביה שביעית   + שמינית
+debugger;
+creatMat7and8 ()
+function creatMat7and8()
+{
+    var arr = [1,2,3,4,5,6,7,8,9];
+    c1cut =_.without (arr, mat6[0][0],mat6[0][1],mat6[0][2], mat4[0][0], mat4[0][1],mat4[0][2]);
+    c2cut =_.without (arr, mat3[0][0],mat3[1][0],mat3[2][0], mat9[0][0], mat9[1][0],mat9[2][0]);
+
+    
+
+
+
+
+
+}
 
 
 
