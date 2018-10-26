@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game Set-Up</title>
+        <style>
+            #levels{
+                list-style: none;
+            }
+
+            #levels input[type="radio"]{
+                margin-right: 4px;
+            }
+
+            .notForGuest{
+                text-decoration: line-through;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="gameSetUp">
+            <header>
+                <h1>Welcome <span id="gameUserName"></span></h1>
+            </header>
+        
+            <div>
+                <h2> Create a game</h2>
+
+                <form action="gameSetUp.html" method="POST">
+                    <fieldset>
+                        <legend>Choose a level</legend>
+                        <ul id="levels">
+                            <li>                            
+                                <input id="easy" name="game_lvl" type="radio" value="Easy" disabled>
+                                <label for="easy">Easy</label>
+                            </li>
+
+                            <li>
+                                <input id="medium" name="game_lvl" type="radio" value="Medium" disabled>
+                                <label for="medium">Medium</label>
+                            </li>
+
+                            <li>
+                                <input id="hard" name="game_lvl" type="radio" value="Medium" disabled>
+                                <label for="hard">Hard</label>
+                            </li>
+                        </ul>
+
+
+                        <button id="startBtn" type="button" disabled>Start</button>
+                        
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </div><!--gameSetUp-->
+
+
+
+        <script src="temp.js"></script>
+    </body>
+</html>
