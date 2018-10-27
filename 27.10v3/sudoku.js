@@ -46,7 +46,7 @@
                         </div>
         
                         <div id="row2">
-                                <button type="button" class="btn btn-secondary" id="signUpBtn">Sign-Up</button>
+                                <button type="button" class="btn btn-primary" id="signUpBtn">Sign-Up</button>
                                 <button type="button" class="btn btn-primary" id="connectBtn">Connect</button>
                         </div>
                     </fieldset>
@@ -378,20 +378,113 @@
         */ 
         const gameGenerator={
 
-            generate: function(){//TEST TEST TEST
-                gameServer.sudokuBoard= [
-                    [5,3,4,6,7,8,9,1,2],
-                    [6,7,2,1,9,5,3,4,8],
-                    [1,9,8,3,4,2,5,6,7],
-                    [8,5,9,7,6,1,4,2,3],
-                    [4,2,6,8,5,3,7,9,1],
-                    [7,1,3,9,2,4,8,5,6],
-                    [9,6,1,5,3,7,2,8,4],
-                    [2,8,7,4,1,9,6,3,5],
-                    [3,4,5,2,8,6,1,7,9]
-                ];
 
-            },
+            SolveSudoku: function(grid){
+                let row=0,col=0;
+
+                function FindUnassignedLocation(grid) 
+                { 
+                    for (r = 0; r< grid.length; r++) {
+                        for (c = 0; c< grid[r].length; c++) {
+                            if (grid[r][c] === 0) {
+                                row=r;
+                                col=c;
+                                return true; 
+                            }
+                        }
+                    }
+                    return false; 
+                } 
+                
+                /* Returns a boolean which indicates whether it will be legal to assign 
+                   num to the given row,col location. */
+                function isSafe(grid,row,col,num) 
+                { 
+                    /* Returns a boolean which indicates whether an assigned entry 
+                   in the specified row matches the given number. */
+                   function UsedInRow(grid,row,num) 
+                   { 
+                       for (let col = 0; col < grid.length; col++) 
+                           if (grid[row][col] === num) 
+                               return true; 
+                       return false; 
+                   } 
+                   
+                   /* Returns a boolean which indicates whether an assigned entry 
+                   in the specified column matches the given number. */
+                   function UsedInCol(grid,col,num) 
+                   { 
+                       for (let row = 0; row < grid.length; row++) 
+                           if (grid[row][col] === num) 
+                               return true; 
+                       return false; 
+                   } 
+                   
+                   /* Returns a boolean which indicates whether an assigned entry 
+                   within the specified 3x3 box matches the given number. */
+                   function UsedInBox(grid,boxStartRow,boxStartCol,num) 
+                   { 
+                       for (let row = 0; row < 3; row++) 
+                           for (let col = 0; col < 3; col++) 
+                               if (grid[row+boxStartRow][col+boxStartCol] === num) 
+                                   return true; 
+                       return false; 
+                   } 
+                
+                
+                
+                    /* Check if 'num' is not already placed in current row, 
+                        current column and current 3x3 box */
+                    return !UsedInRow(grid, row, num) && 
+                            !UsedInCol(grid, col, num) && 
+                            !UsedInBox(grid, row - row%3 , col - col%3, num); 
+                }
+            
+            
+                
+            
+                //If there is no nassigned location,we are done
+                if(!FindUnassignedLocation(grid)){
+                    return true; //success!
+                }
+            
+                for(let num=1;num<=9;num++){
+                    //assigning the number keep sudoku rules
+                    if(isSafe(grid,row,col,num)){
+                        grid[row][col]=num;
+                        //Assigning the number in the cell led to a win
+                        if(gameGenerator.SolveSudoku(grid)){
+                            return true;
+                        }else{//The assignment led to a loose.Try again.
+                            grid[row][col]=0;
+                        }
+                    }
+                }
+                return false;
+
+            },//!SolveSudolu()
+
+            generate: function(){
+                
+                do {
+                    gameServer.sudokuBoard= gameServer.createBoard();
+                    let isRandomSudoKuBoard=false;
+    
+                    const randRow= gameGenerator.randomNumber(0,8);
+                    const randCol=gameGenerator.randomNumber(0,8);
+                    const randomSudokuNumber=gameGenerator.randomSudokuNumber();
+
+                    gameServer.sudokuBoard[randRow][randCol]=randomSudokuNumber;                   
+                    isRandomSudoKuBoard=gameGenerator.SolveSudoku(gameServer.sudokuBoard);    
+                    if(isRandomSudoKuBoard){
+                        return;
+                    }else{
+                        gameServer.sudokuBoard[randRow][randCol]=0;
+                    }
+                } while (true)
+
+                
+            },//!generate()
 
             //Returns a random whole number in range [lower,upper]
             randomNumber:function(lower,upper){
